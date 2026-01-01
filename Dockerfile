@@ -46,3 +46,5 @@ ENTRYPOINT grep -v "//" "/input/request.json" | jq 'del(.PathToDatabase) | .Calc
 # docker build . --tag=loadprofilegenerator
 # run the container with:
 # docker run -it --rm -v $(pwd)/pyscripts:/input --entrypoint /bin/bash loadprofilegenerator
+# in the container run the calculation with:
+# python3 /input/run_sim.py
