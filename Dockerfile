@@ -24,6 +24,8 @@ RUN mv "/app/publish/profilegenerator-latest.db3" "/app/publish/profilegenerator
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN mv SimEngine2 simengine2
+# RUN cp -R /app /opt/venv/lib/python3.11/site-packages/pylpg/LPG_linux
 
 # Create a folder for the input files
 RUN mkdir /input
@@ -32,6 +34,7 @@ RUN mkdir /input
 RUN mkdir /results
 
 RUN ln -s /app /opt/venv/lib/python3.11/site-packages/pylpg/LPG_linux
+# RUN ln -s /app /opt/venv/lib/python3.11/site-packages/pylpg/C1
 
 # Hint: The command line documentation of the LPG (shown with -? argument) is interactive, so for that to work in docker 
 # the "docker run" command has to be executed with the -t option (does not apply for other LPG commands such as ProcessHouseJob)
