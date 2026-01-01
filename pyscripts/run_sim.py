@@ -17,8 +17,8 @@ electricity_profile = data["Electricity_HH1"]
 print(electricity_profile)
 
 # Resample to 15 minute resolution
-# profile_df = electricity_profile.resample("30min").sum().to_frame()
-profile_df = electricity_profile.to_frame()
+profile_df = electricity_profile.resample("30min").sum().to_frame()
+# profile_df = electricity_profile.to_frame()
 print(profile_df)
 
-profile_df.to_csv('load_profile.csv', index_label="start_timestamp")
+profile_df.to_csv('/input/load_profile.csv', index_label="start_timestamp")
